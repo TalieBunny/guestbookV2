@@ -15,8 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(IMessageRepository::class, MessageRepository::class);
-        $this->app->bind(IAdminRepository::class, AdminRepository::class);
+        //
     }
 
     /**
