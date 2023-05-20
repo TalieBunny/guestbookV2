@@ -6,6 +6,7 @@ use App\Repository\AdminRepository;
 use App\Repository\IAdminRepository;
 use App\Repository\IMessageRepository;
 use App\Repository\MessageRepository;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Schema::defaultStringLength(191);
     }
 }

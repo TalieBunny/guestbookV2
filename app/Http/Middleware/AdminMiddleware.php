@@ -17,19 +17,20 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        // Admin role = 1, user = 0
-
-        if(Auth::check()) {
-
-            if(Auth::user()->role == '1') {
+        if(Auth::check())
+        {
+            if(Auth::user()->role_as == 1)
+            {
                 return $next($request);
-            }else{ 
-                return redirect('/home')->with('message', 'Access Denied - Not Admin!');
             }
-        }else{
-           return redirect('/login')->with('message', 'Login to access the guestbook.');
+            else
+            {
+                return redirect('home')->with('status','Access Denied! as you are not an admin');
+            }
         }
-
-        return $next($request);
+        else
+        {
+            return redirect('home')->with('status','Please Login First');
+        }
     }
 }
