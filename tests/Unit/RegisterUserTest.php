@@ -10,9 +10,6 @@ use Tests\TestCase;
 class RegisterUserTest extends TestCase
 {
 
-    use RefreshDatabase;
-
-
     public function test_registration_screen()
     {
         $response = $this->get('/register');

@@ -2,17 +2,18 @@
 
 namespace Tests\Unit;
 
-use App\Providers\RouteServiceProvider;
+use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Database\Factories\UserFactory;
 use Tests\TestCase;
-
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CreateNewMessageTest extends TestCase
 {
 
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
+    protected User $user;
 
     public function test_home_screen()
     {
@@ -21,17 +22,24 @@ class CreateNewMessageTest extends TestCase
         $response->assertStatus(200);
     }
  
+    protected function setUp(): void
+    {
+ 
+        parent::setUp();
+
+        $this->user = UserFactory::new()->create();
+
+    }
+
     public function test_user_creates_new_message()
     {
-        $response = $this->post('/message.store', [
-            'user_id' => 2,
+
+        $response = $this->actingAs($this->user)->post('/messages/store', [
             'message' => 'message',
-            'reply' => null,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'created_at' => Carbon::now()
         ]);
  
-        $response->assertStatus(200);
+        $response->assertRedirect('/');
     }
 
 }

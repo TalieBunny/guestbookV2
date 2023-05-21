@@ -3,12 +3,11 @@
 @section('content')
 
 <div class="container mt-5 mb-5">
-    <h2>Create New Message</h2>
+    <h3>Create New Message</h3>
     <hr>
     <form action="{{ route('message.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
           <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
             <textarea class="form-control" name="message" id="message" placeholder="Enter Your Message"></textarea>
           </div>
 
