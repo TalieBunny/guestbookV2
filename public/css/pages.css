@@ -21,39 +21,38 @@ html {
   background-attachment: fixed;
   width: 100%;
   min-width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  height: 600px;
-  margin-top: -85px;
+  max-height: 100%;
   color: #636b6f;
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
   height: 100vh;
-  margin: 0;
 }
 
 .background-loggedin {
   background-image: url("../images/bg-loggedin1.jpeg");
-  background-repeat: repeat-y;
+  background-repeat: repeat ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   width: 100%;
   min-width: 100%;
+  min-height: 100%;
   margin-right: 0;
   margin-left: 0;
-  height: 600px;
   margin-top: -85px;
   color: #636b6f;
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
-  height: 100vh;
   margin: 0;
 }
 
-.top-right {
+.container {
+  min-height: 100%;
+}
+
+.top-left {
   position: absolute;
-  right: 70px;
+  left: 70px;
   top: 25px;
 }
 
@@ -71,6 +70,9 @@ html {
   color: black;
 }
 
+.nav-link {
+  color: black !important;
+}
 .success {
   color: green;
 }

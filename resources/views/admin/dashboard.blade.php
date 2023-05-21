@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<br>
 <h1 class="text-center">Admin Dashboard</h1>
 <br>
 <div class="container">
@@ -12,6 +12,7 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Message</th>
+                    <th scope="col">Reply</th>
                     <th scope="col" class="text-center">Date</th>
                 </tr>
                 </thead>
@@ -20,6 +21,7 @@
                         <tr>
                             <td class="vertical-align">{{ $message->user->name }}</td>
                             <td class="vertical-align">{{ $message->message }}</td>
+                            <td class="vertical-align">{{ $message->reply }}</td>
                             <td class="text-center">{{ \Carbon\Carbon::parse($message->created_at)->format('d/m/Y')}}</td>
                             <td class="text-center"><a href="{{ route('message.show', $message->id)}}" class="btn btn-primary"><i class="fa fa-reply"></i></a></td>
                             <td class="text-center">
